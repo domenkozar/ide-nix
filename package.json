@@ -1,0 +1,101 @@
+{
+  "name": "ide-nix",
+  "main": "./index",
+  "version": "0.1.0",
+  "description": "Nix LSP plugin for atom",
+  "keywords": [
+    "lsp",
+    "ide",
+    "nix"
+  ],
+  "activationCommands": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:domenkozar/ide-nix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/domenkozar/ide-nix"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.21.0 <2.0.0"
+  },
+  "dependencies": {
+    "atom-languageclient": "^0.9.2",
+    "atom-package-deps": "^4.6.1"
+  },
+  "package-deps": [
+    "atom-ide-ui",
+    "nix"
+  ],
+  "enhancedScopes": [],
+  "prettier": {
+    "printWidth": 100
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6
+    },
+    "globals": [
+      "atom"
+    ],
+    "rules": {
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ]
+    }
+  },
+  "configSchema": {
+    "path": {
+      "title": "Absolute path to hnix-lsp executable",
+      "order": 1,
+      "type": "string",
+      "default": "hnix-lsp",
+      "description": ""
+    },
+    "isDebug": {
+      "title": "Turn on debugging output",
+      "order": 5,
+      "type": "boolean",
+      "default": false,
+      "description": ""
+    },
+    "loggingPath": {
+      "title": "Log to a file (if debugging is on)",
+      "order": 6,
+      "type": "string",
+      "default": "/tmp/ide-nix.log",
+      "description": ""
+    }
+  },
+  "consumedServices": {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeLinterV2"
+      }
+    },
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    },
+    "atom-ide-busy-signal": {
+      "versions": {
+        "0.1.0": "consumeBusySignal"
+      }
+    },
+    "datatip": {
+      "versions": {
+        "0.1.0": "consumeDatatip"
+      }
+    }
+  },
+  "providedServices": {
+    "code-format.range": {
+      "versions": {
+        "0.1.0": "provideCodeFormat"
+      }
+    }
+  }
+}
