@@ -1,7 +1,7 @@
 {
   "name": "ide-nix",
   "main": "./index",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Nix LSP plugin for atom",
   "keywords": [
     "lsp",
